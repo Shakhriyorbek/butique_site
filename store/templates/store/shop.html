@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+
+{% block main %}
+      {% include 'store/components/_product_modal.html' %}
+      <div class="container">
+        <!-- HERO SECTION-->
+        {% include 'store/components/_hero_section.html' %}
+        <section class="py-5">
+          <div class="container p-0">
+            <div class="row">
+              <!-- SHOP SIDEBAR-->
+              {% include 'store/components/shop/_categories_list.html' %}
+
+              <!-- SHOP LISTING-->
+              <div class="col-lg-9 order-1 order-lg-2 mb-5 mb-lg-0">
+                {% include 'store/components/shop/_shop_nav.html' %}
+                <div class="row">
+                  <!-- PRODUCT-->
+                  {% for product in products %}
+                    {% include 'store/components/_product_card.html' %}
+                  {% endfor %}
+                </div>
+                <!-- PAGINATION-->
+                {% include 'store/components/shop/_pagination.html' %}
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+{% endblock %}

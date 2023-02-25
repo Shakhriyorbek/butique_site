@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+
+{% block main %}
+{% include 'store/components/_product_modal.html' %}
+
+<!-- HERO SECTION-->
+<div class="container">
+    {% include 'store/components/_hero_section.html' %}
+    <!-- CATEGORIES SECTION-->
+    {% include 'store/components/index/_category_section.html' %}
+
+    <!-- TRENDING PRODUCTS-->
+    {% include 'store/components/index/_trending_products.html' %}
+
+    <!-- SERVICES-->
+    {% include 'store/components/index/_services.html' %}
+
+    <!-- NEWSLETTER-->
+    {% include 'store/components/index/_newsletter.html' %}
+</div>
+
+{% endblock main %}
+
+

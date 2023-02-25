@@ -1,0 +1,112 @@
+<div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered ">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Авторизация</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+      </div>
+      <div class="modal-body">
+        <form action="{% url 'login' %}" method="post">
+                    {% csrf_token %}
+                    <div class="form-floating flex-fill mb-4">
+                        {{ login_form.username }}
+                        <label for="{{ login_form.username.id_for_label }}" class="form-label">
+                            Имя пользователя
+                        </label>
+                    </div>
+
+                    <div class="form-floating flex-fill mb-4">
+                        {{ login_form.password }}
+                        <label for="{{ login_form.password.id_for_label }}" class="form-label">
+                            Пароль
+                        </label>
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                    <button type="submit" class="btn btn-success" id="liveToastBtn">Войти</button>
+                        <script>const toastTrigger = document.getElementById('liveToastBtn')
+const toastLiveExample = document.getElementById('liveToast')
+if (toastTrigger) {
+  toastTrigger.addEventListener('click', () => {
+    const toast = new bootstrap.Toast(toastLiveExample)
+
+    toast.show()
+  })
+}</script>
+
+                        <p class="small text-light fw-bold mt-2 pt-1 mb-0">
+                            Нет аккаунта?
+                            <a data-bs-toggle="modal" data-bs-target="#exampleModalToggle2" class="link-danger">Зарегестрироваться</a>
+                        </p>
+                    </div>
+
+                </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Регистрация</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+      </div>
+      <div class="modal-body">
+        <form action="{% url 'register' %}" method="post">
+                    {% csrf_token %}
+
+                    <div class="form-floating flex-fill mb-4">
+                        {{ register_form.username }}
+                        <label for="{{ register_form.username.id_for_label }}" class="form-label">
+                            Имя пользователя
+                        </label>
+                    </div>
+
+                    <div class="form-floating flex-fill mb-4">
+                        {{ register_form.first_name }}
+                        <label for="{{ register_form.first_name.id_for_label }}" class="form-label">
+                            Ваше имя
+                        </label>
+                    </div>
+
+                    <div class="form-floating flex-fill mb-4">
+                        {{ register_form.last_name }}
+                        <label for="{{ register_form.last_name.id_for_label }}" class="form-label">
+                            Ваша фамилия
+                        </label>
+                    </div>
+
+                    <div class="form-floating flex-fill mb-4">
+                        {{ register_form.email }}
+                        <label for="{{ register_form.email.id_for_label }}" class="form-label">
+                            Ваша почта
+                        </label>
+                    </div>
+
+                    <div class="form-floating flex-fill mb-4">
+                        {{ register_form.password1 }}
+                        <label for="{{ register_form.password1.id_for_label }}" class="form-label">
+                            Пароль
+                        </label>
+                    </div>
+
+                    <div class="form-floating flex-fill mb-4">
+                        {{ register_form.password2 }}
+                        <label for="{{ register_form.password2.id_for_label }}" class="form-label">
+                            Подтвердите пароль
+                        </label>
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                    <button type="submit" class="btn btn-success">Зарегестрироваться</button>
+                        <p class="small text-light fw-bold mt-2 pt-1 mb-0">
+                            Уже есть аккаунт?
+                            <a data-bs-target="#exampleModalToggle" data-bs-toggle="modal" class="link-primary">Войти</a>
+                        </p>
+                    </div>
+                </form>
+      </div>
+    </div>
+  </div>
+</div>
